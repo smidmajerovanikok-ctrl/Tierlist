@@ -1,21 +1,65 @@
+// SEM VLOŽ TEN ODKAZ, CO JSI ZKOPÍROVAL Z TABULKY
+const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRi3abJwKZHzfGyjglOlpqSNwtOuu53WruVs8M_NbzZzrE7DagOYMtxj_Ld6pa8lWnyzgY1zXjlZmuD/pub?output=csv";
+
+async function loadPlayers() {
+    try {
+        const response = await fetch(sheetURL);
+        const csvText = await response.text();
+        const rows = csvText.split('\n').slice(1); // Přeskočíme první řádek s názvy
+        const container = document.querySelector('.list-container');
+        container.innerHTML = ''; 
+
+        rows.forEach((row, index) => {
+            const cols = row.split(',');
+            if (cols.length < 2) return;
+
+            const name = cols[0].trim();
+            const points = cols[1].trim();
+            const tiersRaw = cols[2] ? cols[2].trim() : "";
+            const avatarURL = `https://minotar.net/helm/${name}/100.png`;
+
+            const card = document.createElement('div');
+            card.className = 'player-card';
+            card.onclick = () => openModal(name, points + " points", avatarURL, card);
+
+            card.innerHTML = `
+                <div class="rank-box" style="background: ${index === 0 ? '#f1c40f' : '#95a5a6'}">${index + 1}</div>
+                <img src="${avatarURL}" class="avatar">
+                <div class="player-info">
+                    <span class="player-name">${name}</span>
+                    <div class="player-score">${points} points</div>
+                    <div class="tiers-row">${generateTiers(tiersRaw)}</div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    } catch (e) { console.error("Chyba:", e); }
+}
+
+function generateTiers(tiersString) {
+    if (!tiersString) return '';
+    const tiers = tiersString.split(';'); // V tabulce odděluj role středníkem ;
+    return tiers.map(t => {
+        const type = t.trim().toLowerCase();
+        let icon = "https://minecraft.wiki/images/Diamond_Sword_JE3_BE3.png";
+        if (type.includes('lt1') || type.includes('lt2')) icon = "https://minecraft.wiki/images/Diamond_Axe_JE3_BE3.png";
+        
+        return `<div class="tier-item">
+                    <div class="tier-icon"><img src="${icon}"></div>
+                    <span class="tier-badge ${type}">${t.toUpperCase()}</span>
+                </div>`;
+    }).join('');
+}
+
 function openModal(name, score, avatar, element) {
     document.getElementById('modalName').innerText = name;
     document.getElementById('modalScore').innerText = score;
     document.getElementById('modalAvatar').src = avatar;
-    
-    // Tohle vezme ikonky z karty a dá je do velkého okna
-    const tierIcons = element.querySelector('.tiers-row').innerHTML;
-    document.getElementById('modalTiersDisplay').innerHTML = tierIcons;
-    
+    document.getElementById('modalTiersDisplay').innerHTML = element.querySelector('.tiers-row').innerHTML;
     document.getElementById('playerModal').style.display = "flex";
 }
 
-function closeModal() {
-    document.getElementById('playerModal').style.display = "none";
-}
+function closeModal() { document.getElementById('playerModal').style.display = "none"; }
+window.onclick = function(event) { if (event.target == document.getElementById('playerModal')) closeModal(); }
 
-window.onclick = function(event) {
-    if (event.target == document.getElementById('playerModal')) {
-        closeModal();
-    }
-}
+loadPlayers();
