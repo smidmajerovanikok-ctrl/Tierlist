@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <title>EXIT CZ/SK Tierlist</title>
     <style>
+/* 1. Barvy pro konkrétní tiery - vlož sem */
+.tier-badge.lt1, .tier-badge.lt2, .tier-badge.lt3 { background-color: #888; color: white; }
+.tier-badge.ht1, .tier-badge.ht2 { background-color: #f1c40f; color: black; }
+.tier-badge.ht3 { background-color: #e67e22; color: white; }
+.tier-badge.ht4 { background-color: #e74c3c; color: white; }
+
+/* 2. Společný vzhled (tvar oválu) */
+.tier-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: bold;
+    min-width: 40px;
+    text-align: center;
+    text-transform: uppercase;
+}
+/* ... zbytek tvého kódu (body, player-card atd.) ... */
         body { background-color: #1F1F1F; color: white; font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; flex-direction: column; align-items: center; }
         
         /* Horní tenká lišta */
@@ -59,15 +77,6 @@
         .tier-icon img { width: 25px; height: 25px; object-fit: contain; }
         .tier-badge { font-size: 10px; font-weight: bold; padding: 2px 8px; border-radius: 10px; min-width: 40px; text-align: center; }
         .tier-badge.lt1 { background-color: #F5CC40; color: white; }/* Šedá */ 
-        .tier-badge.lt2 { background-color: #B3A49B; color: white; }
-        .tier-badge.lt3 { background-color: #EB972D; color: white; }
-        .tier-badge.lt4 { background-color: #BCB2BF; color: white; }
-        .tier-badge.lt5 { background-color: #302524; color: white; }
-        .tier-badge.ht1 { background-color: #F5CC40; color: white; }
-        .tier-badge.ht2 { background-color: #8FF1FF; color: white; }
-        .tier-badge.ht3 { background-color: #573F1C; color: white; }
-        .tier-badge.ht4 { background-color: #302524; color: white; }
-        .tier-badge.ht5 { background-color: #361211; color: white; }
         
         /* Barvy tierů */
         .ht1 { background-color: #F5CC40; color: white; }
@@ -118,15 +127,15 @@
                 <span class="player-name">Anti1_</span>
                 <div class="player-score">306 points</div>
                 <div class="tiers-row">
-                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/diasmp.png"></div><span class="tier-badge lt1">LT2</span></div>
-                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/cpvp.png"></div><span class="tier-badge lt2">LT3</span></div>
+                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/diasmp.png"></div><span class="tier-badge lt2">LT2</span></div>
+                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/cpvp.png"></div><span class="tier-badge lt3">LT3</span></div>
                     <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/sword.png"></div><span class="tier-badge ht3">HT3</span></div>
-                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/mace.png"></div><span class="tier-badge ht1">LT3</span></div>
-                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/pot.png"></div><span class="tier-badge ht1">HT4</span></div>
-                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/axe.png"></div><span class="tier-badge ht1">HT4</span></div>
-                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/npot.png"></div><span class="tier-badge ht1">HT3</span></div>
-                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/uhc.png"></div><span class="tier-badge ht1">LT5</span></div>
-                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/smp.png"></div><span class="tier-badge ht1">LT3</span></div>
+                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/mace.png"></div><span class="tier-badge lt3">LT3</span></div>
+                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/pot.png"></div><span class="tier-badge ht4">HT4</span></div>
+                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/axe.png"></div><span class="tier-badge ht4">HT4</span></div>
+                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/npot.png"></div><span class="tier-badge ht3">HT3</span></div>
+                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/uhc.png"></div><span class="tier-badge lt5">LT5</span></div>
+                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/smp.png"></div><span class="tier-badge lt3">LT3</span></div>
                     
                 </div>
             </div>
@@ -139,15 +148,15 @@
                 <span class="player-name">NikyGameYT</span>
                 <div class="player-score">294 points</div>
                 <div class="tiers-row">
-                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/sword.png"></div><span class="tier-badge ht3">LT3</span></div>
+                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/sword.png"></div><span class="tier-badge lt3">LT3</span></div>
                     <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/mace.png"></div><span class="tier-badge lt2">LT2</span></div>
-                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/smp.png"></div><span class="tier-badge lt2">HT2</span></div>
-                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/uhc.png"></div><span class="tier-badge lt2">HT4</span></div>
-                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/npot.png"></div><span class="tier-badge ht3">LT3</span></div>
-                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/cpvp.png"></div><span class="tier-badge ht3">HT2</span></div>
-                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/pot.png"></div><span class="tier-badge ht3">HT4</span></div>
-                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/axe.png"></div><span class="tier-badge ht3">LT4</span></div>
-                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/diasmp.png"></div><span class="tier-badge ht3">LT3</span></div>
+                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/smp.png"></div><span class="tier-badge ht2">HT2</span></div>
+                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/uhc.png"></div><span class="tier-badge ht4">HT4</span></div>
+                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/npot.png"></div><span class="tier-badge lt3">LT3</span></div>
+                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/cpvp.png"></div><span class="tier-badge ht2">HT2</span></div>
+                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/pot.png"></div><span class="tier-badge ht4">HT4</span></div>
+                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/axe.png"></div><span class="tier-badge lt4">LT4</span></div>
+                    <div class="tier-item"><div class="tier-icon"><img src="https://b0tfleyz.github.io/CZSKtiers/kit_icons/diasmp.png"></div><span class="tier-badge lt3">LT3</span></div>
                 </div>
             </div>
         </div>
