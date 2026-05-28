@@ -239,19 +239,20 @@
             });
         });
 
-        // Modální okno
-        function openModal(name, score, avatar, element) {
-            document.getElementById('modalName').innerText = name;
-            document.getElementById('modalScore').innerText = score + " points";
-            document.getElementById('modalAvatar').src = avatar;
-            const tierIcons = element.querySelector('.tiers-row').innerHTML;
-            document.getElementById('modalTiersDisplay').innerHTML = tierIcons;
-            document.getElementById('playerModal').style.display = "flex";
-        }
+       // FUNKCE PRO OTEVŘENÍ OKNA (stojí sama za sebe)
+function openModal(name, score, avatar, element) {
+    document.getElementById('modalName').innerText = name;
+    document.getElementById('modalScore').innerText = score + " points";
+    document.getElementById('modalAvatar').src = avatar;
+    const tierIcons = element.querySelector('.tiers-row').innerHTML;
+    document.getElementById('modalTiersDisplay').innerHTML = tierIcons;
+    document.getElementById('playerModal').style.display = "flex";
+}
 
-        function closeModal() {
-            document.getElementById('playerModal').style.display = "none";
-        }
+// FUNKCE PRO ZAVŘENÍ OKNA (musí být až TADY, úplně venku pod tou první!)
+function closeModal() {
+    document.getElementById('playerModal').style.display = "none";
+}
 
         window.onclick = function(event) {
             if (event.target == document.getElementById('playerModal')) closeModal();
